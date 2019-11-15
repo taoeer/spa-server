@@ -18,26 +18,28 @@ program.option(
   'the index.html page will likely have to be served in place of any 404 responses',
   true,
 );
-program.requiredOption('-t, --target <string>', 'set the proxy target url');
+program.option('-t, --target <string>', 'set the proxy target url');
 
 program.parse(process.argv);
 
 app.use(express.static(process.cwd()));
 
-const proxyOptions = {
-  target: program.target,
-  logLevel: program.logLevel,
-};
-
-if (program.rewrite) {
-  proxyOptions.pathRewrite = {
-    [`^${program.prefix}`]: '',
+if (program.target) {
+  const proxyOptions = {
+    target: program.target,
+    logLevel: program.logLevel,
   };
+
+  if (program.rewrite) {
+    proxyOptions.pathRewrite = {
+      [`^${program.prefix}`]: '',
+    };
+  }
+
+  app.use(program.prefix, proxy(proxyOptions));
 }
 
-app.use(program.prefix, proxy(proxyOptions));
-
-if (program.fallback) {
+if (program.target && program.fallback) {
   app.use('/', (req, res) => {
     res.sendFile(`${process.cwd()}/index.html`);
   });

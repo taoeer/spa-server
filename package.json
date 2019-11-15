@@ -1,6 +1,6 @@
 {
   "name": "static-server-spa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a server for spa production test",
   "main": "index.js",
   "bin": {
