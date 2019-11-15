@@ -1,0 +1,31 @@
+{
+  "name": "spa-server",
+  "version": "1.0.0",
+  "description": "a server for spa production test",
+  "main": "index.js",
+  "bin": {
+    "spa-server": "index.js",
+    "ss": "index.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spa",
+    "spa-server"
+  ],
+  "author": "taoeer",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.20.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.19.1"
+  }
+}
