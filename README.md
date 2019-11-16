@@ -4,7 +4,7 @@ a server for spa production test
 
 # install 
 ```bash
-npm install spa-server -g
+npm install static-server-spa -g
 ```
 
 # usage

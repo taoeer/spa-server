@@ -22,7 +22,11 @@ program.option('-t, --target <string>', 'set the proxy target url');
 
 program.parse(process.argv);
 
-app.use(express.static(process.cwd()));
+app.use(
+  express.static(process.cwd(), {
+    maxAge: 1000 * 60 * 60 * 24 * 365,
+  }),
+);
 
 if (program.target) {
   const proxyOptions = {
