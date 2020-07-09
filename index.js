@@ -12,11 +12,10 @@ program.description('a server for spa production test');
 program.option('-p, --port <number>', 'set the server port', 8080);
 program.option('-l, --logLevel <string>', 'set the server port', 'debug');
 program.option('--prefix <string>', 'set proxy prefix', '/api');
-program.option('-r --rewrite', 'rewrite the prfix when proxy', true);
+program.option('-r --rewrite', 'rewrite the prfix when proxy');
 program.option(
   '-f --fallback',
   'the index.html page will likely have to be served in place of any 404 responses',
-  true,
 );
 program.option('-t, --target <string>', 'set the proxy target url');
 
